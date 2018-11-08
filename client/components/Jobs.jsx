@@ -1,19 +1,26 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 import jobs from '../../data.js'
 
 
-function Jobs(props) {
-    const jobList = props.jobs
-    console.log(jobList)
-    return (
-        <ul>
-            {props.jobList.map((item, i) => {
-                return <li key = {`job-number-$(i)`}>{item}</li>
+const jobList = Object.keys(jobs)
+    
+    
+const Jobs = () => {
+        
+  return (
+     <div>
+     <h3>Nav</h3>
+         <ul>
+            {jobList.map(job => {
+              return <li key={job}><Link to = {`/list/${job}`}>{job}</Link></li>
             })}
         </ul>
-    )
-}
+         
+          </div>
+        )
+      }
+
 
 // const Jobs = (props) => {
 //     console.log('props ' + props)
@@ -25,8 +32,6 @@ function Jobs(props) {
 //               return <li key={jobby}>{jobby}</li>
 //           })}
 //         </ul>
-     
-
 //       </div>
 //     )
 //   }
