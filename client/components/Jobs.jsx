@@ -1,50 +1,35 @@
-// import React from 'react'
+import React from 'react'
 // import {Link} from 'react-router-dom'
 // import jobs from '../../data.js'
 
 
-// const jobList = Object.keys(jobs)
+// const jobList = props.jobList
     
-    
-// const Jobs = () => {
+
+class Jobs extends React.Component {
+    constructor(props) { 
+        super(props)
+        // console.log("Props in Jobs constructor: ", props)
+        this.state = props.AppState
+        // console.log("Jobs State Cons: ", this.state)
+    }
+
+    render() {
+    // get data from state
+    const jobsData = this.state.jobsData
+    // console.log("Jobs Data Jobs Render: ", jobsData)
         
-//   return (
-//      <div>
-//      <h3>Nav</h3>
-//          <ul>
-//             {jobList.map(job => {
-//               return <li key={job}><Link to = {`/list/${job}`}>{job}</Link></li>
-//             })}
-//         </ul>
-         
-//           </div>
-//         )
-//       }
+    return (
+        <div>
+        <h2>Jobs List Below</h2>
+        <ul>
+        {console.log("IN UL ", jobsData, jobsData[0])}
+        {jobsData.map((job, i) =>  <li key={i}>Job Title: {job.title}. Description: {job.description}</li> )}
+        </ul>
+        <h2>Jobs List Above</h2>
+        </div>
+    )
+}
+}
 
-
-// // const Jobs = (props) => {
-// //     console.log('props ' + props)
-// //     const jobList = {jobs}
-// //     return (
-// //       <div>
-// //         <ul>
-// //           {jobList.map(jobby => {
-// //               return <li key={jobby}>{jobby}</li>
-// //           })}
-// //         </ul>
-// //       </div>
-// //     )
-// //   }
-
-// // class Jobs extends React.Components {
-// //     constructor(props) {
-// //         super(props)
-// //     }
-// //     render() {
-// //     return (
-// //         <h1>React development has begun!</h1>
-// //   )
-// // }
-// // }
-
-// export default Jobs
+export default Jobs;
