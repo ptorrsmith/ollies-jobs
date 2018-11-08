@@ -11,13 +11,13 @@ class Jobs extends React.Component {
         super(props)
         // console.log("Props in Jobs constructor: ", props)
         this.state = props.AppState
-        // console.log("Jobs State Cons: ", this.state)
+        console.log("Jobs State Cons: ", this.state)
     }
 
     render() {
     // get data from state
     const jobsData = this.state.jobsData
-    // console.log("Jobs Data Jobs Render: ", jobsData)
+    console.log("Jobs Data Jobs Render: ", jobsData)
         
     return (
         <div>

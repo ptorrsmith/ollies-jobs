@@ -1,6 +1,6 @@
 import React from 'react'
 import jobsDataNewBrowser from '../../data'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import Jobs from './Jobs'
 import Header from './Header'
 import Nav from './Nav'
@@ -34,7 +34,11 @@ class App extends React.Component {
     <h1>Welcome to Ollies Jobs</h1>
     <p>Now will show Jobs List</p>
     {console.log("Jobs from state ",this.state)}
-    <Jobs AppState={this.state} />
+  <Route exact path="/" render={() => (<Redirect to="/jobs"/>)} />
+    <Route exact path='/jobs' render={(props) => {
+          return <Jobs AppState={this.state} {...props} />      
+    }} />
+    <Route path = '/jobs/:id'/>
 
   <Footer />
   </div>
