@@ -1,5 +1,5 @@
 import React from 'react'
-
+import jobsData from '../../data'
 import Nav from './Nav'
 
 class App extends React.Component {
