@@ -5,6 +5,7 @@ import Jobs from './Jobs'
 const App = () => {
   return (
     <div>
+      <Nav />
       <h1>Jobs!</h1>
       <Jobs />
     </div>
