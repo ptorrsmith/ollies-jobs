@@ -1,15 +1,22 @@
 import React from 'react'
 
-import Jobs from './Jobs'
+import Nav from './Nav'
 
-const App = () => {
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
   return (
     <div>
       <Nav />
+      <Header />
       <h1>Jobs!</h1>
-      <Jobs />
+      {/* <Jobs /> */}
+      <Footer />
     </div>
   )
+}
 }
 
 export default App

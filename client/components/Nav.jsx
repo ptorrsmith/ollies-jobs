@@ -9,12 +9,12 @@ class Nav extends React.Component {
 
     render() {
     return (
-    <nav class="navbar">
-        <div class="container">
-            <ul class="navbar-list">
-              <li class="navbar-item"><a class="navbar-link" href="index.html">Jobs</a></li>
-              <li class="navbar-item"><a class="navbar-link" href="#blogs">Add Job</a></li>
-              <li class="navbar-item"><a class="navbar-link" href="#about">about</a></li>            
+    <nav className="navbar">
+        <div className="container">
+            <ul className="navbar-list">
+              <li className="navbar-item">Jobs</li>
+              <li className="navbar-item">Add Job</li>
+              <li className="navbar-item">About</li>            
             </ul>
         </div>
     </nav>
