@@ -1,4 +1,5 @@
 import React from 'react'
+import jobsData from '../../data'
 
 import Header from './Header'
 import Nav from './Nav'
