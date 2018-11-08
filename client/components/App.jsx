@@ -1,8 +1,13 @@
 import React from 'react'
 
+import Jobs from './Jobs'
+
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <div>
+      <h1>Jobs!</h1>
+      <Jobs />
+    </div>
   )
 }
 
