@@ -1,6 +1,9 @@
 import React from 'react'
 import jobsData from '../../data'
+
+import Header from './Header'
 import Nav from './Nav'
+import Footer from './Footer'
 
 class App extends React.Component {
   constructor(props) {
