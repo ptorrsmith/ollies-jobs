@@ -1,11 +1,15 @@
 import React from 'react'
+import Nav from './Nav'
 
 class Header extends React.Component {
-  render() {
+  render(props) {
     return (
-    <div>
-      <h1>Header</h1>
-    </div>
+      <header>
+          <Nav AppState={this.state} {...props}  />
+
+              <h1>Ollie's Jobs Internationale</h1>
+
+      </header>
     )
   }
 }

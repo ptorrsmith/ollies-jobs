@@ -2,9 +2,7 @@ import React from 'react'
 // import {Link} from 'react-router-dom'
 // import jobs from '../../data.js'
 
-
 // const jobList = props.jobList
-
 
 class Job extends React.Component {
     constructor(props) {
@@ -23,11 +21,13 @@ class Job extends React.Component {
         })
         
         return (
-            <div>
+            <div className="panel">
                 <h2>Job name: {job.title}</h2>
                 <p>Job description: {job.description}</p>
                 <p>Employer Name: {job.employer}</p>
                 <p>Date Info: {job.dateInfo}</p>
+                <p>Job claimer: {job.claimer || 'unclaimed'}</p>
+                <p>{job.claimer ? job.claimer_comment : ''}</p>
             </div>
         )
     }

@@ -8,8 +8,8 @@ class Footer extends React.Component {
     render() {
     return (
         <div className='footer'>
-        <div>&copy; 2018</div>
-        <div>Pete, Ollie and Taz</div>
+        <p>&copy; 2018</p>
+        <p>Pete, Ollie and Taz</p>
         </div>
     )
 }

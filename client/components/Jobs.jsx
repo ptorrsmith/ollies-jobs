@@ -20,13 +20,12 @@ class Jobs extends React.Component {
     console.log("Jobs Data Jobs Render: ", jobsData)
         
     return (
-        <div>
-        <h2>Jobs List Below</h2>
+        <div className="panel">
+        <h2>Current Jobs</h2>
         <ul>
         {/* {console.log("IN UL ", jobsData, jobsData[0])} */}
         {jobsData.map((job, i) =>  <li key={i}><Link to={`/jobs/${job.id}`}>Job Title: {job.title}.</Link> Description: {job.description}</li> )}
         </ul>
-        <h2>Jobs List Above</h2>
         </div>
     )
 }
