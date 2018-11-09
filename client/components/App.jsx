@@ -5,7 +5,7 @@ import Jobs from './Jobs'
 import Header from './Header'
 import Nav from './Nav'
 import Footer from './Footer'
-
+import Job from './Job'
 class App extends React.Component {
 
   constructor(props) {
@@ -32,13 +32,15 @@ class App extends React.Component {
     <Header />
     <Nav />
     <h1>Welcome to Ollies Jobs</h1>
-    <p>Now will show Jobs List</p>
+    
     {console.log("Jobs from state ",this.state)}
   <Route exact path="/" render={() => (<Redirect to="/jobs"/>)} />
     <Route exact path='/jobs' render={(props) => {
           return <Jobs AppState={this.state} {...props} />      
     }} />
-    <Route path = '/jobs/:id'/>
+    <Route exact path = '/jobs/:id' render={(props) => {
+          return <Job AppState={this.state} {...props} />      
+    }}/>
 
   <Footer />
   </div>
