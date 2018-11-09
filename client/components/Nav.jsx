@@ -12,7 +12,7 @@ class Nav extends React.Component {
     return (
     <nav className="navbar grid">
               <p className="navbar-item"><Link to={`/jobs/`}>Jobs</Link></p>
-              <p className="navbar-item"><Link to={`/jobs/new`}>Add Job</Link></p>
+              <p className="navbar-item"><Link to={`/jobs/addJob`}>Add Job</Link></p>
               <p className="navbar-item"><Link to={`/`}>About</Link></p>        
     </nav>
   )
