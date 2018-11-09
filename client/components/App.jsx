@@ -3,7 +3,6 @@ import jobsDataNewBrowser from '../../data'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import Jobs from './Jobs'
 import Header from './Header'
-import Nav from './Nav'
 import AddJob from './AddJob'
 import Footer from './Footer'
 import Job from './Job'
@@ -38,17 +37,14 @@ class App extends React.Component {
     this.setState({jobsData: newJobsData})
   }
 
-  render() {
+  render(props) {
     
     
     return (
     <Router>
     <div>
-    <Header />
-    <Nav />
-    <h1>Welcome to Ollies Jobs</h1>
+    <Header AppState={this.state} {...props}  />
     
-    {console.log("Jobs from state ",this.state)}
   <Route exact path="/" render={() => (<Redirect to="/jobs"/>)} />
     <Route exact path='/jobs' render={(props) => {
       return <Jobs AppState={this.state} {...props} />      
