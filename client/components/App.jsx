@@ -3,18 +3,23 @@ import jobsDataNewBrowser from '../../data'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import Jobs from './Jobs'
 import Header from './Header'
-import Nav from './Nav'
+import AddJob from './AddJob'
 import Footer from './Footer'
-
+import Job from './Job'
 class App extends React.Component {
 
   constructor(props) {
     super(props)
     // save the jobsData to local storage
     // check if local jobs in local storage
-    let jobsData = JSON.parse((window.localStorage.getItem('jobs'))) || window.localStorage.setItem('jobs', JSON.stringify(jobsDataNewBrowser))
+    let jobsData = JSON.parse((window.localStorage.getItem('jobs')))
+    if(!jobsData) {
+      window.localStorage.setItem('jobs', JSON.stringify(jobsDataNewBrowser))
+      jobsData = JSON.parse((window.localStorage.getItem('jobs')))
+    }
     this.state = {jobsData: jobsData}
     
+    this.saveItem = this.saveItem.bind(this)
   }
   
   componentDidMount() {
@@ -23,22 +28,34 @@ class App extends React.Component {
     // this.setState({jobsData: jobsData})
   }
 
-  render() {
+  saveItem(job) {
+    console.log('save', job)
+    let newJobsData = this.state.jobsData
+    job.id = newJobsData.length + 1
+    newJobsData.push(job)
+    window.localStorage.setItem('jobs', JSON.stringify(newJobsData))
+    this.setState({jobsData: newJobsData})
+  }
+
+  render(props) {
     
     
     return (
     <Router>
     <div>
-    <Header />
-    <Nav />
-    <h1>Welcome to Ollies Jobs</h1>
-    <p>Now will show Jobs List</p>
-    {console.log("Jobs from state ",this.state)}
+    <Header AppState={this.state} {...props}  />
+    
   <Route exact path="/" render={() => (<Redirect to="/jobs"/>)} />
     <Route exact path='/jobs' render={(props) => {
-          return <Jobs AppState={this.state} {...props} />      
+      return <Jobs AppState={this.state} {...props} />      
     }} />
-    <Route path = '/jobs/:id'/>
+    <Route exact path='/jobs/:id' render={(props) => {
+      if (props.match.params.id === 'addJob') {   
+        return <AddJob AppState={this.state} saveItem={this.saveItem} {...props} />
+      } else {
+        return <Job AppState={this.state} {...props} />  
+      }
+    }} />
 
   <Footer />
   </div>
