@@ -20,13 +20,13 @@ class AddJob extends React.Component {
 
     }
     handleSubmit(evt) {
+        evt.preventDefault()
         this.props.saveItem(this.state)
         this.setState({
             title: "",
             description: "",
             employer: ""
         })
-        evt.preventDefault()
     }
     handleChange(evt) {
         console.log(evt.target.value)
